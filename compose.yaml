@@ -1,0 +1,13 @@
+services:
+  notes_db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user123
+      POSTGRES_DB: notes_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - notes_db_data:/var/lib/postgresql/data
+volumes:
+  notes_db_data:
