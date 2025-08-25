@@ -1,6 +1,6 @@
 # Project
 
-Buat dipake belajar aja
+Notes backend using Golang
 
 Packages :
 - [x] Gin
