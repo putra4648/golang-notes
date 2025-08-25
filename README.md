@@ -1,6 +1,6 @@
 # Project
 
-This is for learning only
+Buat dipake belajar aja
 
 Packages :
 - [x] Gin
