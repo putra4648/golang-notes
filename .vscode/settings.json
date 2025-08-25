@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "notes_db",
+            "database": "notes_db",
+            "username": "user",
+            "password": "user123"
+        }
+    ]
+}
