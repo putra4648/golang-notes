@@ -12,8 +12,11 @@ import (
 func GetNotes() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		db, dbError := db.DB()
+		if dbError != nil {
+			c.Error(dbError)
+			return
+		}
 
-		c.Error(dbError)
 		notes, notesError := gorm.G[entities.Note](db).Find(c)
 
 		if notesError != nil {
@@ -28,7 +31,10 @@ func GetNotes() gin.HandlerFunc {
 func AddNote() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		db, dbError := db.DB()
-		c.Error(dbError)
+		if dbError != nil {
+			c.Error(dbError)
+			return
+		}
 
 		var note entities.Note
 		if err := c.ShouldBindJSON(&note); err != nil {
@@ -36,7 +42,6 @@ func AddNote() gin.HandlerFunc {
 			c.AbortWithStatus(http.StatusBadRequest)
 			return
 		}
-
 		notes := gorm.G[entities.Note](db).Create(c, &note)
 
 		c.JSON(200, notes)
